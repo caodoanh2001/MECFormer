@@ -1,2 +1,5 @@
-# MECFormer
-Official implementation of MECFormer: Multi-task Whole Slide Image Classification with Expert Consultation Network
+## MECFormer: Multi-task Whole Slide Image Classification with Expert Consultation Network (ACCV'2024)
+
+**Abstract:** Whole slide image (WSI) classification is a crucial problem for cancer diagnostics in clinics and hospitals. A WSI, acquired at gigapixel size, is commonly tiled into patches and processed by multiple-instance learning (MIL) models. Previous MIL-based models designed for this problem have only been evaluated on individual tasks for specific organs, and the ability to handle multiple tasks within a single model has not been investigated. In this study, we propose MECFormer, a generative Transformer-based model designed to handle multiple tasks within one model. To leverage the power of learning multiple tasks simultaneously and to enhance the model's effectiveness in focusing on each individual task, we introduce an Expert Consultation Network, a projection layer placed at the beginning of the Transformer-based model. Additionally, to enable flexible classification, autoregressive decoding is incorporated by a language decoder for WSI classification. Through extensive experiments on five datasets involving four different organs, one cancer classification task, and four cancer subtyping tasks, MECFormer demonstrates superior performance compared to individual state-of-the-art multiple-instance learning models.
+
+![overall](https://github.com/user-attachments/assets/ad6d3389-aa6d-43ef-94a5-018d99498694)
