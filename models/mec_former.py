@@ -28,7 +28,7 @@ def sinusoid_encoding_table(max_len, d_model, padding_idx=None):
         out[padding_idx] = 0
     return out
 
-class DictMoE(nn.Module):
+class ExpertConsultationNetwork(nn.Module):
     def __init__(
         self,
         input_dim: int,
@@ -229,7 +229,7 @@ class MecFormer(nn.Module):
         self.pos_emb = nn.Embedding.from_pretrained(sinusoid_encoding_table(self.max_seq_len, d_model, 0), freeze=True)
         self.num_router_hidden_layers = 2
         
-        self._fc1 = DictMoE(
+        self._fc1 = ExpertConsultationNetwork(
             input_dim=self.f_dim,
             hidden_size=self.f_dim,
             init_lambda=0.3,
