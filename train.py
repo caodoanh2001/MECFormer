@@ -12,8 +12,6 @@ import pytorch_lightning as pl
 from pytorch_lightning import Trainer
 import json
 
-from base_experts_path import expert_paths
-
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters())
 
