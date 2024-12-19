@@ -1,0 +1,82 @@
+General:
+    comment: 
+    seed: 2021
+    fp16: True
+    amp_level: O2
+    precision: 16 
+    multi_gpu_mode: dp
+    gpus: [0]
+    epochs: &epoch 200 
+    grad_acc: 2
+    frozen_bn: False
+    patience: 10
+    server: test #train #test
+    log_path: logs_dir/camel_brca_esca_rcc_nsclc_CTransPath
+
+Data:
+    dataset_name: camel_data
+    max_seq_len: 8
+    bos_tag: <bos>
+    eos_tag: <eos>
+    padding_idx: 3
+    data_name: ['camel', 'brca', 'esca', 'rcc', 'nsclc']
+    data_shuffle: True
+    classification: False
+    feature_type: ctranspath
+    data_dir: [
+        '/data4/doanhbc/camelyon_patches_20x_bwh_biopsy/features_ctranspath/pt_files', 
+        '/data4/doanhbc/TCGA-BRCA-breast_patches/features_ctranspath/pt_files',
+        '/data4/doanhbc/TCGA-ESCA_patches/features_ctranspath/pt_files',
+        '/data4/doanhbc/TCGA-RCC_patches/features_ctranspath/pt_files',
+        '/data4/doanhbc/TCGA-NSCLC_patches/features_ctranspath/pt_files'
+        ]
+    label_dir: [
+        '../wsi_dataset_annotation/camelyon/', # breast
+        '../wsi_dataset_annotation/tcga_brca/', # breast
+        '../wsi_dataset_annotation/tcga_esca/', # esophagus
+        '../wsi_dataset_annotation/tcga_rcc/', # kidney
+        '../wsi_dataset_annotation/tcga_nsclc/' # lung
+        ]
+    fold: 0
+    nfold: 4
+    mapping_dict: {
+        'camel': ['non tumor.', 'tumor.'],
+        'brca': ['invasive ductal.', 'invasive lobular carcinoma.'],
+        'esca': ['adenocarcinoma.', 'squamous cell carcinoma.'],
+        'rcc': ['clear cell.', 'papillary.', 'chromophobe renal cell carcinoma.'],
+        'nsclc': ['adenocarcinoma.', 'squamous cell carcinoma.'],
+    }
+    name_tasks: {
+        'camel': 0,
+        'brca': 1,
+        'esca': 2,
+        'rcc': 3,
+        'nsclc': 4,
+    }
+
+    vocab_path: './vocabs/vocabulary.json'
+
+    train_dataloader:
+        batch_size: 1 
+        num_workers: 8
+
+    test_dataloader:
+        batch_size: 1
+        num_workers: 8
+
+Model:
+    name: trans_mil_moe_modified
+    f_dim: 768
+    d_model: 768
+
+
+Optimizer:
+    opt: lookahead_radam
+    lr: 0.0002
+    opt_eps: null 
+    opt_betas: null
+    momentum: null 
+    weight_decay: 0.00001
+
+Loss:
+    base_loss: CrossEntropyLoss

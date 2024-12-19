@@ -1,0 +1,20 @@
+{
+    "<bos>": 0,
+    "<unk>": 1,
+    "<eos>": 2,
+    "<pad>": 3,
+    "papillary.": 4,
+    "non": 5,
+    "carcinoma.": 6,
+    "cell": 7,
+    "cell.": 8,
+    "lobular": 9,
+    "chromophobe": 10,
+    "invasive": 11,
+    "ductal.": 12,
+    "renal": 13,
+    "tumor.": 14,
+    "clear": 15,
+    "squamous": 16,
+    "adenocarcinoma.": 17
+}

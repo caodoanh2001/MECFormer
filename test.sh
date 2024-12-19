@@ -1,0 +1,7 @@
+CUDA_VISIBLE_DEVICES=0 python train.py --stage=test --config=configs/mecformer_uni.yaml --gpu=0 --fold=0 --model_path="./checkpoints/uni/fold0/epoch=04-val_loss=0.0565.ckpt" > results_MECFormer_fold0_uni.txt
+CUDA_VISIBLE_DEVICES=0 python train.py --stage=test --config=configs/mecformer_uni.yaml --gpu=0 --fold=1 --model_path="./checkpoints/uni/fold1/epoch=05-val_loss=0.0659.ckpt" > results_MECFormer_fold1_uni.txt
+CUDA_VISIBLE_DEVICES=0 python train.py --stage=test --config=configs/mecformer_uni.yaml --gpu=0 --fold=2 --model_path="./checkpoints/uni/fold2/epoch=03-val_loss=0.0872.ckpt" > results_MECFormer_fold2_uni.txt
+
+CUDA_VISIBLE_DEVICES=0 python train.py --stage=test --config=configs/mecformer_ctranspath.yaml --gpu=0 --fold=0 --model_path="./checkpoints/ctranspath/fold0/epoch=06-val_loss=0.0982.ckpt" > results_MECFormer_fold0_ctrans.txt
+CUDA_VISIBLE_DEVICES=0 python train.py --stage=test --config=configs/mecformer_ctranspath.yaml --gpu=0 --fold=1 --model_path="./checkpoints/ctranspath/fold1/epoch=05-val_loss=0.0727.ckpt" > results_MECFormer_fold1_ctrans.txt
+CUDA_VISIBLE_DEVICES=0 python train.py --stage=test --config=configs/mecformer_ctranspath.yaml --gpu=0 --fold=2 --model_path="./checkpoints/ctranspath/fold2/epoch=04-val_loss=0.0709.ckpt" > results_MECFormer_fold2_ctrans.txt
