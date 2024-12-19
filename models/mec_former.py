@@ -6,9 +6,8 @@ from .nystrom_attention import NystromAttention
 from .attention import MultiHeadAttention
 from copy import deepcopy
 from torch import Tensor, nn
-from typing import List, Optional
+from typing import List
 from models.dict_moe import DictMoEGate
-import torchvision
 
 def position_embedding(input, d_model):
     input = input.view(-1, 1)
