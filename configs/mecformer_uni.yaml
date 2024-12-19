@@ -24,18 +24,18 @@ Data:
     classification: False
     feature_type: ctranspath
     data_dir: [
-        '/data4/doanhbc/camelyon_patches_20x_bwh_biopsy/uni_feature/pt_files', 
-        '/data4/doanhbc/TCGA-BRCA-breast_patches/uni_feature/pt_files',
-        '/data4/doanhbc/TCGA-ESCA_patches/uni_feature/pt_files',
-        '/data4/doanhbc/TCGA-RCC_patches/uni_feature/pt_files',
-        '/data4/doanhbc/TCGA-NSCLC_patches/uni_feature/pt_files'
+        './all_datasets/camelyon_patches_20x_bwh_biopsy/uni_feature/pt_files', 
+        './all_datasets/TCGA-BRCA-breast_patches/uni_feature/pt_files',
+        './all_datasets/TCGA-ESCA_patches/uni_feature/pt_files',
+        './all_datasets/TCGA-RCC_patches/uni_feature/pt_files',
+        './all_datasets/TCGA-NSCLC_patches/uni_feature/pt_files'
         ]
     label_dir: [
-        '../wsi_dataset_annotation/camelyon/', # breast
-        '../wsi_dataset_annotation/tcga_brca/', # breast
-        '../wsi_dataset_annotation/tcga_esca/', # esophagus
-        '../wsi_dataset_annotation/tcga_rcc/', # kidney
-        '../wsi_dataset_annotation/tcga_nsclc/' # lung
+        './wsi_dataset_annotation/camelyon/', # breast
+        './wsi_dataset_annotation/tcga_brca/', # breast
+        './wsi_dataset_annotation/tcga_esca/', # esophagus
+        './wsi_dataset_annotation/tcga_rcc/', # kidney
+        './wsi_dataset_annotation/tcga_nsclc/' # lung
         ]
     fold: 0
     nfold: 4
@@ -65,7 +65,7 @@ Data:
         num_workers: 8
 
 Model:
-    name: trans_mil_moe_modified2
+    name: mec_former
     f_dim: 1024
     d_model: 512
 
