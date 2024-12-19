@@ -7,7 +7,7 @@ from .attention import MultiHeadAttention
 from copy import deepcopy
 from torch import Tensor, nn
 from typing import List, Optional
-from models.dict_moe import DictMoEGate3
+from models.dict_moe import DictMoEGate
 import torchvision
 
 def position_embedding(input, d_model):
@@ -53,7 +53,7 @@ class DictMoE(nn.Module):
     def initialize(self, expert_models: List[nn.Module], base_model: nn.Module):
         self.base_model = deepcopy(base_model)
         self.num_experts = len(expert_models)
-        self.gate = DictMoEGate3(
+        self.gate = DictMoEGate(
             self.input_dim,
             self.hidden_size,
             self.num_experts,
